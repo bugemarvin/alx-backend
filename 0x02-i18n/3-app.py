@@ -7,10 +7,6 @@ from flask_babel import Babel, _
 from flask import render_template, Flask, request
 
 
-app = Flask(__name__)
-babel = Babel(app)
-
-
 class Config:
     '''
     creating languages
@@ -20,7 +16,9 @@ class Config:
     LANGUAGES = ["en", "fr"]
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
+babel = Babel(app)
 
 
 @babel.localeselector
