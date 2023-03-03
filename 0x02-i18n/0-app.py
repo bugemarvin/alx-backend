@@ -17,4 +17,4 @@ def index():
     '''
     linking to 0-index.html
     '''
-    return render_template('0-index.html')
+    return render_template('0-index.html', title='Welcome to Holberton')
