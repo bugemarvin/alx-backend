@@ -10,6 +10,7 @@ from flask import render_template, Flask, request
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config:
     '''
     creating languages
@@ -30,7 +31,7 @@ def get_locale():
 
 @app.route("/")
 @app.route("/templates/2-index.html")
-def index():
+def index() -> str:
     '''
     view web page in accordance with locale
     '''
