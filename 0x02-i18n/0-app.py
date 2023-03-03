@@ -5,6 +5,7 @@ seting up flask
 
 
 from flask import Flask
+from flask import render_template
 
 
 app = Flask(__name__)
@@ -12,6 +13,8 @@ app = Flask(__name__)
 
 @app.route('/')
 @app.route('/templates/0-index.html')
-
 def index():
-    return "Hello world"
+    '''
+    linking to 0-index.html
+    '''
+    return render_template('0-index.html')
