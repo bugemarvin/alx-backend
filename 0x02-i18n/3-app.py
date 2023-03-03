@@ -39,7 +39,3 @@ def index() -> str:
     view web page in accordance with locale
     '''
     return render_template('3-index.html')
-
-
-if __name__ = '__main__':
-    app.run(debug=True)
