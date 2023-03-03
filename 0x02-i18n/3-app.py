@@ -26,8 +26,8 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@app.route("/")
-@app.route("/templates/3-index.html")
+@app.route('/')
+@app.route('/templates/3-index.html')
 def index() -> str:
     """view/display web page
     """
