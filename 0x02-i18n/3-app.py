@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-'''creating a localization
-'''
+"""creating a localization
+"""
 
 from flask_babel import Babel, _
 from flask import render_template, Flask, request
 
 
 class Config:
-    '''creating languages cfg
-    '''
+    """creating languages cfg
+    """
     BABEL_DEFAULT_TIMEZONE = 'UTC'
     BABEL_DEFAULT_LOCALE = 'en'
     LANGUAGES = ["en", "fr"]
@@ -21,14 +21,14 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
-    '''determining the best language
-    '''
+    """determining the best language
+    """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route("/")
 @app.route("/templates/3-index.html")
 def index() -> str:
-    '''view web page in accordance with locale
-    '''
+    """view/display web page
+    """
     return render_template('3-index.html')
