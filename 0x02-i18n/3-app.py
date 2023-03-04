@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""_defining languages_
-
-Returns:
-    _type_: flask application
+"""defining langs
 """
 
 from flask_babel import Babel, _
@@ -10,7 +7,7 @@ from flask import render_template, Flask, request
 
 
 class Config:
-    """_config file for flask_bable_
+    """config file
     """
     BABEL_DEFAULT_TIMEZONE = 'UTC'
     BABEL_DEFAULT_LOCALE = 'en'
@@ -24,10 +21,7 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
-    """_Language Localisation_
-
-    Returns:
-        Str: prefered user language
+    """language pref
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -35,9 +29,6 @@ def get_locale():
 @app.route('/')
 @app.route('/templates/3-index.html')
 def index() -> str:
-    """_Page Render_
-
-    Returns:
-        str: Content of html
+    """Display content
     """
     return render_template('3-index.html')
