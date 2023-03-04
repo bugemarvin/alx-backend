@@ -3,8 +3,12 @@
 creating a localization
 '''
 
-from flask_babel import Babel, _
+from flask_babel import Babel
 from flask import render_template, Flask, request
+
+
+app = Flask(__name__)
+babel = Babel(app)
 
 
 class Config:
@@ -17,23 +21,18 @@ class Config:
     LANGUAGES = ["en", "fr"]
 
 
-app = Flask(__name__)
-app.config.from_object(Config)
-babel = Babel(app)
-
-
 @babel.localeselector
 def get_locale():
     '''
     determining the best language
     '''
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config.from_object(Config))
 
 
-@app.route('/')
-@app.route('/templates/3-index.html')
+@app.route("/")
+@app.route("/templates/2-index.html")
 def index() -> str:
     '''
     view web page in accordance with locale
     '''
-    return render_template('3-index.html')
+    return render_template('2-index.html')
