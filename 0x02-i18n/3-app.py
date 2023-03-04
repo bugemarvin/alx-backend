@@ -2,7 +2,6 @@
 '''
 creating a localization
 '''
-
 from flask_babel import Babel, _
 from flask import render_template, Flask, request
 

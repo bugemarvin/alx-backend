@@ -4,8 +4,6 @@
 Returns:
     _type_: flask application
 """
-
-
 from flask_babel import Babel, _
 from flask import render_template, Flask, request
 
