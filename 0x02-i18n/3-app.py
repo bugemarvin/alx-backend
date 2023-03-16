@@ -3,7 +3,7 @@
 creating a localization
 '''
 from flask_babel import Babel, _
-from flask import render_template, Flask, request
+from flask import Flask, render_template, request
 
 
 class Config:
@@ -29,7 +29,7 @@ def get_locale():
     '''
     determining the best language
     '''
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config['LANGUAGES']) or 'en'
 
 
 @app.route('/')
