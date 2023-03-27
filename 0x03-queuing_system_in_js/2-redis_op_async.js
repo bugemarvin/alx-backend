@@ -1,5 +1,6 @@
 import { promisify } from "util";
 import { createClient } from "redis";
+
 const client = createClient();
 async () => {
   await client.connected();
@@ -21,12 +22,13 @@ function setNewSchool(schoolName, value) {
 }
 
 async function displaySchoolValue(schoolName) {
+  const clientAsync = promisify(client.get).bind(client);
   try {
-    const clientAsync = promisify(client.get).bind(client);
     const response = await clientAsync(schoolName);
     console.log(response);
   } catch (err) {
-    console.log(err);
+    const errors = await clientAsync(err);
+    console.log(errors);
   }
 }
 
