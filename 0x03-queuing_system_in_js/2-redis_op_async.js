@@ -21,9 +21,13 @@ function setNewSchool(schoolName, value) {
 }
 
 function displaySchoolValue(schoolName) {
-  client.get(schoolName, (err, response) => {
-    if (err) console.log(err);
-    console.log(response);
+        try {
+                const clientAsync = promisify(client.get).bind(client);
+                const response = await clientAsync(schoolName);
+                console.log(response);
+        } catch (err) {
+                console.log(err)
+        }
   });
 }
 
