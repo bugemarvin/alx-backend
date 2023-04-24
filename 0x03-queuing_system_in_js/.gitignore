@@ -1,3 +1,5 @@
-/redis-7.2-rc1
-/redis-7.2-rc1.tar.gz
-/node_modules
+node_modules
+.gitignore
+redis-7.2-rc1
+package-lock.json
+redis-7.2-rc1.tar.gz
